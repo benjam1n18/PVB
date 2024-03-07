@@ -58,3 +58,11 @@ Route::controller(LoginRegisterController::class)->group(function() {
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::post('/logout', 'logout')->name('logout');
 });
+
+
+
+
+/*Weken/opdrachten*/
+Route::get('/week1', function () {
+    return view('./weken/week-1');
+});

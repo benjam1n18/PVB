@@ -1,7 +1,10 @@
 <?php
 
+use ErlandMuchasaj\LaravelFileUploader\FileUploader; // <= import the package
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginRegisterController;
+use App\Http\Controllers\UploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +69,12 @@ Route::controller(LoginRegisterController::class)->group(function() {
 Route::get('/week1', function () {
     return view('./weken/week-1');
 });
+Route::get('/week2', function () {
+    return view('./weken/week-2');
+});
+
+/*File upload*/
+
+Route::post('/upload', [UploadController::class, 'store']);
+
+

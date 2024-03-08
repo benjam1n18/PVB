@@ -33,20 +33,29 @@
     <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
-<body>
-
+<!-- Page width 'Boxed' of 'Full' -->
+<body id="page-top" class="full" data-bs-spy="scroll" data-bs-target=".navbar-nav" >
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-xl">
+<nav class="navbar navbar-expand-xl fixed-top">
     <div class="container">
         <!-- Logo mobile-->
         <a class="navbar-brand-small page-scroll my-auto d-xl-none" href="/">
-            <img src="img/logo.png" alt="">
+            <img src="img/logo.png"  alt="">
         </a>
         <div class="justify-content-lg-end">
             <!-- hamburger menu -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-alphabet"
-                    aria-controls="nav-alphabet" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-alphabet" aria-controls="nav-alphabet" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
         </div>
@@ -64,32 +73,41 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/#team">Team</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/#activities">Activities</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-dropdown active" href="#" id="sub-menu2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Weken
+                    </a>
+                    <ul class="dropdown-menu " aria-labelledby="sub-menu2">
+                        <li><a class="dropdown-item" href="week1">Week 1!</a></li>
+                        <li><a class="dropdown-item" href="week2">Week 2</a></li>
+                        <li><a class="dropdown-item" href="index-video">Week 3</a></li>
+                        <li><a class="dropdown-item active" href="elements-page">Week 4</a></li>
+                    </ul>
                 </li>
                 <!--desktop logo -->
                 <li class="nav-item d-none d-xl-block navbar-brand-centered ">
                     <a href="/#page-top">
-                        <img src="img/logo.png" alt="">
+                        <img src="img/logo.png"  alt="">
                     </a>
                 </li>
-                <!--/desktop logo -->
                 @guest
                     <li class="nav-item">
                         <a class="nav-link {{ (request()->is('login')) ? 'active' : '' }}" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}"
-                           href="{{ route('register') }}">Register</a>
+                        <a class="nav-link {{ (request()->is('register')) ? 'active' : '' }}" href="{{ route('register') }}">Register</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('logout') }}"
+                            <li>
+                                <a class="dropdown-item" href="/dashboard"  aria-expanded="false">
+                                   Profiel
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
                                 >Logout</a>
@@ -100,9 +118,11 @@
                         </ul>
                     </li>
                     @endguest
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#contact">Contact</a>
+                </li>
+                <!--/nav-item -->
             </ul>
-            <!--/nav-item -->
             <!--/navbar-nav -->
         </div>
         <!--/collapse -->
@@ -110,15 +130,3 @@
     <!--/container -->
 </nav>
 <!--/navbar ends-->
-
-
-<div class="container-fluid g-0">
-    @yield('content')
-</div>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-</body>
-</html>

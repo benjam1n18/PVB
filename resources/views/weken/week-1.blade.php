@@ -1,131 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <!--[if IE]>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Page title -->
-    <title>Alphabet - Children One Page HTML5</title>
-    <!--[if lt IE 9]>
-    <script src="js/respond.js"></script>
-    <![endif]-->
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <!-- Icon fonts -->
-    <link href="fonts/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="fonts/flaticons/flaticon.css" rel="stylesheet" type="text/css">
-    <!-- Google fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,800%7CAlegreya+Sans:700,900' rel='stylesheet'
-          type='text/css'>
-    <!-- Theme CSS -->
-    <link href="css/style.css" rel="stylesheet">
-    <!-- Color Style CSS -->
-    <link href="styles/Childhood.css" rel="stylesheet">
-    <!-- Plugins -->
-    <link rel="stylesheet" href="css/plugins.css">
-    <!-- LayerSlider stylesheet -->
-    <link rel="stylesheet" href="layerslider/css/layerslider.css">
-    <!-- Favicons-->
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-</head>
-<!-- Page width 'Boxed' of 'Full' -->
-<body id="page-top" class="full" data-bs-spy="scroll" data-bs-target=".navbar-nav">
-<!-- Preloader -->
-{{--<div id="preloader">--}}
-{{--    <div class="preloader">--}}
-{{--        <span></span>--}}
-{{--        <span></span>--}}
-{{--        <span></span>--}}
-{{--        <span></span>--}}
-{{--        <span></span>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-xl fixed-top">
-    <div class="container">
-        <!-- Logo mobile-->
-        <a class="navbar-brand-small page-scroll my-auto d-xl-none" href="/">
-            <img src="img/logo.png" alt="">
-        </a>
-        <div class="justify-content-lg-end">
-            <!-- hamburger menu -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-alphabet"
-                    aria-controls="nav-alphabet" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </button>
-        </div>
-        <div class="collapse navbar-collapse" id="nav-alphabet">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item home">
-                    <a class="nav-link" href="index#page-top">Home</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="index#services">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index#team">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index#activities">Activities</a>
-                </li>
-                <!--desktop logo -->
-                <li class="nav-item d-none d-xl-block navbar-brand-centered ">
-                    <a href="index.blade.php#page-top">
-                        <img src="img/logo.png" alt="">
-                    </a>
-                </li>
-                <!--/desktop logo -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index#gallery">Gallery</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle blog-dropdown" href="#" id="sub-menu1" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Blog
-                    </a>
-                    <ul class="dropdown-menu " aria-labelledby="sub-menu1">
-                        <li><a class="dropdown-item" href="blog-home">Blog</a></li>
-                        <li><a class="dropdown-item" href="blog-post">Blog Post</a></li>
-                    </ul>
-                </li>
-                <!--/nav-item -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index#prices">Prices</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index#contact">Contact</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-dropdown active" href="#" id="sub-menu2" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        Pages
-                    </a>
-                    <ul class="dropdown-menu " aria-labelledby="sub-menu2">
-                        <li><a class="dropdown-item" href="sidebar-page">Sidebar page</a></li>
-                        <li><a class="dropdown-item" href="calendar-page">Calendar Page</a></li>
-                        <li><a class="dropdown-item" href="index-video">Video Home page</a></li>
-                        <li><a class="dropdown-item active" href="elements-page">Elements</a></li>
-                    </ul>
-                </li>
-                <!--/nav-item -->
-            </ul>
-            <!--/navbar-nav -->
-        </div>
-        <!--/collapse -->
-    </div>
-    <!--/container -->
-</nav>
-<!--/navbar ends-->
+@include('header')
 <!-- Clouds SVG Divider -->
 <div id="cloud-home" class="container-fluid cloud-divider">
     <svg id="deco-clouds1" class="head" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100"
@@ -1557,9 +1430,11 @@
                     voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et em explicabo tenetur lore
                     apsuet!</p>
                 <!-- Button -->
-                <div class="page-scroll">
-                    <a class="btn" href="#about">About Us</a>
-                </div>
+                    <form action="/upload" method="post" enctype="multipart/form-data">
+                    @csrf <!-- CSRF token for Laravel -->
+                        <input type="file" name="file">
+                        <button class="btn" type="submit">Upload</button>
+                    </form>
                 <!--/page-scroll -->
             </div>
             <!--/card -->
@@ -1724,6 +1599,58 @@
         <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
     </div>
 </footer>
+
+
+
+
+<!DOCTYPE html>
+
+<body class="antialiased">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <ul class="mb-0 p-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+        <div class="col-12 py-5">
+            <div class="card my-5">
+                <div class="card-header">
+                    <h3>Laravel File Uploader</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('files.store')  }}" enctype="multipart/form-data">
+                        @method('POST')
+                        @csrf
+                        <div class="mb-3">
+                            <label for="formFileLg" class="form-label">File input example</label>
+                            <input name="file" class="form-control form-control-lg" id="formFileLg"
+                                   type="file">
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" value="submit" class="btn btn-primary">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
 <!-- /footer ends -->
 <!-- Core JavaScript Files -->
 <script src="js/jquery.min.js"></script>
